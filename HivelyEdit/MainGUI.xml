@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<application id="app">
+
+	<menubar id="menu">
+		<menu title="File">
+			<item id="mn_about" help="About this program">About HivelyEdit</item>
+			<item id="mn_rapagui" help="About the RapaGUI toolkit">About RapaGUI</item>
+			<item/>
+			<item id="mn_exit" help="Exit program">Q_uit</item>
+		</menu>
+	</menubar>
+
+	<window title="HivelyEdit" id="win" notify="closerequest" width="640" height="480" menubar="menu">
+
+		<vgroup>
+
+			<pageview>
+
+				<vgroup title="Song Editor">
+					<hgroup>
+						<button icon="1">New Song</button>
+						<button icon="3">Close Song</button>
+						<rectangle />
+						<button icon="4">Save Song</button>
+						<button icon="5">Save Song as...</button>
+					</hgroup>
+					<colgroup columns="2">
+						<label>Current Song File</label>
+						<popfile id="filename" pattern="hvl|ahx"/>
+						<label>Title</label>
+						<textentry id="title" />
+						<label>Tempo Multiplier</label>
+						<slider id="temposlide" weight="8" />
+						<label>Lines per Track</label>
+						<slider id="lines" weight="8" />
+						<label>Number of Voices</label>
+						<hgroup>
+							<text id="voiceout" weight="1" frame="true">4</text>
+							<scrollbar horiz="true" id="voices" weight="15" />
+						</hgroup>
+						<label>Song Transpose</label>
+						<hgroup>
+							<slider weight="7" id="bulktrans" min="-128" max="127" />
+							<button weight="1" id="bulktransok">Transpose</button>
+						</hgroup>
+					</colgroup>
+					<rectangle />
+				</vgroup>
+
+				<vgroup title="Playlist Editor">
+					<hgroup>
+						<button id="selline">Select Start</button>
+						<button id="endline">Select End</button>
+						<button id="unselline">Unselect</button>
+						<rectangle />
+						<button id="transup" icon="16">Transpose Up One</button>
+						<button id="transdown" icon="17">Transpose Down One</button>
+					</hgroup>
+					<hgroup>
+						<button id="cutline" icon="6">Cut</button>
+						<button id="copyline" icon="7">Copy</button>
+						<button id="pasteline" icon="8">Paste</button>
+						<rectangle />
+						<button id="insertline" icon="9">Insert</button>
+						<button id="remline" icon="10">Remove</button>
+					</hgroup>
+					<listview id="playlist" vrules="true">
+						<column title="Track 0" />
+						<column title="Transpose 0" />
+						<column title="Track 1" />
+						<column title="Transpose 1" />
+						<column title="Track 2" />
+						<column title="Transpose 2" />
+						<column title="Track 3" />
+						<column title="Transpose 3" />
+						<column title="Track 4" />
+						<column title="Transpose 4" />
+						<column title="Track 5" />
+						<column title="Transpose 5" />
+						<column title="Track 6" />
+						<column title="Transpose 6" />
+						<column title="Track 7" />
+						<column title="Transpose 7" />
+						<column title="Track 8" />
+						<column title="Transpose 8" />
+						<column title="Track 9" />
+						<column title="Transpose 9" />
+						<column title="Track A" />
+						<column title="Transpose A" />
+						<column title="Track B" />
+						<column title="Transpose B" />
+						<column title="Track C" />
+						<column title="Transpose C" />
+						<column title="Track D" />
+						<column title="Transpose D" />
+						<column title="Track E" />
+						<column title="Transpose E" />
+						<column title="Track F" />
+						<column title="Transpose F" />
+					</listview>
+					<hgroup>
+						<button icon="12" id="pause" toggle="true">Pause</button>
+						<button icon="11" id="play">Play</button>
+						<button icon="13" id="rewind">Previous</button>
+						<button icon="14" id="forward">Next</button>
+						<button icon="15" id="stop">Stop</button>
+					</hgroup>
+				</vgroup>
+
+				<vgroup title="Track Editor">
+					<hgroup>
+						<vgroup>
+							<hgroup>
+								<label>Current Track</label>
+								<slider id="curtrack" weight="8" />
+							</hgroup>
+							<rectangle />
+							<text frame="true" id="numtracks" />
+							<hgroup>
+								<button id="addtrack" icon="9">Add Track</button>
+								<button id="deltrack" icon="10">Delete Track</button>
+							</hgroup>
+							<rectangle />
+							<hgroup>
+								<button id="seltrack">Start Selection</button>
+								<button id="endtrack">End Selection</button>
+								<button id="unseltrack">Unselect</button>
+							</hgroup>
+							<rectangle />
+							<button icon="16">Move Up</button>
+							<button icon="17">Move Down</button>
+						</vgroup>
+						<listview id="track">
+							<column title="Note" />
+							<column title="Instrument" />
+							<column title="Command 1" />
+							<column title="Command 2" />
+						</listview>
+						</hgroup>
+				</vgroup>
+
+				<vgroup title="Instrument Editor">
+					<hgroup>
+						<button icon="1" id="newinst">New</button>
+						<button icon="2" id="openinst">Open</button>
+						<button icon="3" id="closeinst">Close</button>
+						<rectangle />
+						<button icon="4" id="saveinst">Save</button>
+						<button icon="5" id="saveasinst">Save as...</button>
+					</hgroup>
+					<hgroup>
+						<label>Current Instrument</label>
+						<combobox id="instruments" />
+					</hgroup>
+					<hline />
+					<pageview>
+						<vgroup title="Envelope">
+							<colgroup columns="2">
+								<label>Base Octave</label>
+								<slider id="baseoct" />
+							</colgroup>
+							<hline />
+							<colgroup columns="2">
+								<label>Attack</label>
+								<slider id="atk" />
+								<label>Decay</label>
+								<slider id="dcy" />
+								<label>Sustain</label>
+								<slider id="sus" />
+								<label>Release</label>
+								<slider id="rls" />
+							</colgroup>
+							<rectangle />
+						</vgroup>
+						<vgroup title="Modulation">
+							<label align="center">Pulse Width Modulation</label>
+							<colgroup columns="2">
+								<label>Start</label>
+								<slider id="pwstart" />
+								<label>End</label>
+								<slider id="pwend" />
+								<label>Rate</label>
+								<slider id="pwrate" />
+							</colgroup>
+							<hline />
+							<label align="center">Filter Modulation</label>
+							<colgroup columns="2">
+								<label>Start</label>
+								<slider id="fstart" />
+								<label>End</label>
+								<slider id="fend" />
+								<label>Rate</label>
+								<slider id="frate" />
+							</colgroup>
+							<rectangle />
+						</vgroup>
+						<hgroup title="Commands">
+							<vgroup weight="1">
+								<button id="instlineedit">Edit Line</button>
+								<hline />
+								<button id="instlineadd" icon="9">Add Line</button>
+								<button id="instlinedel" icon="10">Remove Line</button>
+								<button id="instlineins" icon="8">Insert Line</button>
+								<hline />
+								<button id="instlineup" icon="16">Move Up</button>
+								<button id="instlinedown" icon="17">Move Down</button>
+								<rectangle />								
+							</vgroup>
+							<listview id="instcom" weight="9" vrules="true">
+								<column title="Line" />
+								<column title="Fixed" checkbox="true" />
+								<column title="Note" />
+								<column title="Waveform" />
+								<column title="Command 1" />
+								<column title="Parameter 1" />
+								<column title="Command 2" />
+								<column title="Parameter 2" />
+							</listview>
+						</hgroup>
+					</pageview>
+				</vgroup>
+			</pageview>
+			
+			<statusbar>
+				<item>Ready</item>
+			</statusbar>
+
+		</vgroup>
+
+	</window>
+	
+</application>

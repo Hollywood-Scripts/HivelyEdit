@@ -1,0 +1,139 @@
+/*
+ * HVL_Edit
+ * by Samuel D. Crow
+ *
+ * Using AHX plugin by Andreas Falkenhahn,
+ * based on HivelyTracker code from Peter Gordon
+ * which is also based on the AHX file format by
+ * Dexter/Abyss and Pink/Abyss
+ *
+ * Released under 3-Clause BSD License
+ */
+@VERSION 8,0
+
+@REQUIRE "RapaGUI"
+@REQUIRE "AHX"
+/*@REQUIRE "AHX_Edit.hwp"*/
+
+@FILE 1,"MainGUI.xml"
+@FILE 2,"InstrumentEdit.xml"
+@FILE 3,"TrackEdit.xml"
+
+/*
+** Information about this app
+*/
+@APPTITLE "HivelyEdit"
+@APPVERSION "$VER: TextEditor 1.0 (05.30.2020)"
+@APPCOPYRIGHT "(C) 2020 by Samuel D. Crow"
+@APPAUTHOR "Samuel D. Crow"
+@APPDESCRIPTION "Edits AHX and HVL file formats"
+
+/*
+** Toolbar images
+*/
+@BRUSH 1, "data/new.png", {LoadAlpha = True}
+@BRUSH 2, "data/open.png", {LoadAlpha = True}
+@BRUSH 3, "data/close.png", {LoadAlpha = True}
+@BRUSH 4, "data/save.png", {LoadAlpha = True}
+@BRUSH 5, "data/saveas.png", {LoadAlpha = True}
+@BRUSH 6, "data/cut.png", {LoadAlpha = True}
+@BRUSH 7, "data/copy.png", {LoadAlpha = True}
+@BRUSH 8, "data/paste.png", {LoadAlpha = True}
+@BRUSH 9, "data/add.png", {LoadAlpha = True}
+@BRUSH 10, "data/remove.png", {LoadAlpha = True}
+@BRUSH 11, "data/tapeplay.png", {LoadAlpha = True}
+@BRUSH 12, "data/tapepause.png", {LoadAlpha = True}
+@BRUSH 13, "data/tapestart.png", {LoadAlpha = True}
+@BRUSH 14, "data/tapeend.png", {LoadAlpha = True}
+@BRUSH 15, "data/tapestop.png", {LoadAlpha = True}
+@BRUSH 16, "data/moveup.png", {LoadAlpha = True}
+@BRUSH 17, "data/movedown.png", {LoadAlpha = True}
+
+/*
+** Save document
+*/
+Function p_SaveGate()
+	
+	If projectname$ = "Unnamed"
+		If p_SaveAs() Then Return(True)
+	Else			
+		p_Save()
+	EndIf		
+	
+	Return(False)
+	
+EndFunction
+
+/*
+** Warn user of losing his changes
+*/
+Function p_CheckSave()
+	
+	If changed
+		
+		If moai.Request("", "Song has been modified. Do you want to save your changes?", "Yes|No", "question")
+			If p_SaveGate() Then Return(True)			
+		EndIf
+	EndIf				
+	
+	Return(False)
+	
+EndFunction
+
+/*
+** Handles all incoming events
+*/
+Function p_EventFunc(msg)
+	
+	Switch msg.action
+	Case "RapaGUI":
+		Switch msg.attribute
+		Case "Pressed":
+			Switch msg.id
+				Case "mn_open":
+					If p_CheckSave() Then Break
+					
+					Local f$ = FileRequest("Select", "txt")
+					If f$ = "" Then Return
+						
+					moai.Set("editor", "text", (FileToString(f$)), "nonotify", True)
+					projectname$ = f$
+					changed = False
+				Case "mn_save":
+					p_SaveGate()
+				Case "mn_saveas":
+					p_SaveAs()	
+				Case "mn_close":
+					p_New()
+				Case "mn_new":
+					p_New()				
+				Case "mn_undo":
+					moai.DoMethod("editor", "undo")
+				Case "mn_redo":
+					moai.DoMethod("editor", "redo")
+				Case "mn_cut":
+					moai.DoMethod("editor", "cut")
+				Case "mn_copy":
+					moai.DoMethod("editor", "copy")
+				Case "mn_paste":
+					moai.DoMethod("editor", "paste")	
+			EndSwitch
+		Case "CloseRequest":
+			If p_CheckSave() Then Break
+			End							
+ 		EndSwitch
+	EndSwitch
+
+EndFunction
+
+Global changed=False
+
+moai.CreateApp(ReadString(1))
+moai.CreateDialog(ReadString(2))
+moai.DoMethod("insted","showmodal")
+
+InstallEventHandler({RapaGUI = p_EventFunc})
+
+Repeat
+	WaitEvent
+Forever
