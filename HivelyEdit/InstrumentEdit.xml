@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<dialog id="insted">
+<dialog id="insted" accelerator="acc" title="Instrument Edit">
 	<vgroup>
 		<hgroup>
 			<vgroup frame="true">
@@ -8,9 +8,7 @@
 				<colgroup columns="2">
 					<label>Note</label>
 					<choice id="instnote">
-						<item>A</item>
-						<item>A#</item>
-						<item>B</item>
+						<item>None</item>
 						<item>C</item>
 						<item>C#</item>
 						<item>D</item>
@@ -20,6 +18,9 @@
 						<item>F#</item>
 						<item>G</item>
 						<item>G#</item>
+						<item>A</item>
+						<item>A#</item>
+						<item>B</item>
 					</choice>
 					<label>Octave</label>
 					<choice id="instoct">
@@ -30,15 +31,16 @@
 						<item>4</item>
 						<item>5</item>
 					</choice>
-					<label>Waveform</label>
-					<choice id="instwave">
-						<item>None</item>
-						<item>Noise</item>
-						<item>Pulse</item>
-						<item>Sawtooth</item>
-						<item>Triangle</item>
-					</choice>
 				</colgroup>
+				<hline />
+				<label align="center">Waveform</label>
+				<choice id="instwave">
+					<item>None</item>
+					<item>Noise</item>
+					<item>Pulse</item>
+					<item>Sawtooth</item>
+					<item>Triangle</item>
+				</choice>
 				<rectangle />
 			</vgroup>
 			<vgroup frame="true">
@@ -278,6 +280,7 @@
 		<rectangle />
 		<hgroup>
 			<button id="instok">OK</button>
+			<rectangle />
 			<button id="instcancel">Cancel</button>
 		</hgroup>
 	</vgroup>

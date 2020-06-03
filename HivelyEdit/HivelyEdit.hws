@@ -13,7 +13,7 @@
 
 @REQUIRE "RapaGUI"
 @REQUIRE "AHX"
-/*@REQUIRE "AHX_Edit.hwp"*/
+/*@REQUIRE "AHX_Edit"*/
 
 @FILE 1,"MainGUI.xml"
 @FILE 2,"InstrumentEdit.xml"

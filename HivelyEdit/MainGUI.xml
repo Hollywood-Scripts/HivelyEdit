@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <application id="app">
 
+	<accelerator id="acc">
+		<item id="notec">z</item>
+		<item id="notecs">s</item>
+		<item id="noted">x</item>
+		<item id="noteds">d</item>
+		<item id="notee">c</item>
+		<item id="notef">v</item>
+		<item id="notefs">g</item>
+		<item id="noteg">b</item>
+		<item id="notegs">h</item>
+		<item id="notea">n</item>
+		<item id="noteas">j</item>
+		<item id="noteb">m</item>
+		<item id="oct0">f1</item>
+		<item id="oct1">f2</item>
+		<item id="oct2">f3</item>
+		<item id="oct3">f4</item>
+		<item id="oct4">f5</item>
+		<item id="oct5">f6</item>
+	</accelerator>
+
 	<menubar id="menu">
 		<menu title="File">
 			<item id="mn_about" help="About this program">About HivelyEdit</item>
