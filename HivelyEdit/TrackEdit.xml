@@ -263,5 +263,9 @@
 			
 		</pageview>
 		<rectangle />
+		<hgroup>
+			<button id="trkok">OK</button>
+			<button id="trkcancel">Cancel</button>
+		</hgrouop>
 	</vgroup>
 </dialog>

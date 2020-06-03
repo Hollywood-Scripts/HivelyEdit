@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <dialog id="insted">
 	<vgroup>
-		<pageview>
-			<colgroup columns="2" title="Transpose">
-				<label>Note</label>
-				<choice id="instnote">
-					<item>A</item>
-					<item>A#</item>
-					<item>B</item>
-					<item>C</item>
-					<item>C#</item>
-					<item>D</item>
-					<item>D#</item>
-					<item>E</item>
-					<item>F</item>
-					<item>F#</item>
-					<item>G</item>
-					<item>G#</item>
-				</choice>
-				<label>Octave</label>
-				<choice id="instoct">
-					<item>0</item>
-					<item>1</item>
-					<item>2</item>
-					<item>3</item>
-					<item>4</item>
-					<item>5</item>
-				</choice>
-				<label>Waveform</label>
-				<choice id="instwave">
-					<item>None</item>
-					<item>Noise</item>
-					<item>Pulse</item>
-					<item>Sawtooth</item>
-					<item>Triangle</item>
-				</choice>
-			</colgroup>
-
-			<vgroup title="Commands">
+		<hgroup>
+			<vgroup frame="true">
+				<label align="center">Transpose</label>
+				<hline />
+				<colgroup columns="2">
+					<label>Note</label>
+					<choice id="instnote">
+						<item>A</item>
+						<item>A#</item>
+						<item>B</item>
+						<item>C</item>
+						<item>C#</item>
+						<item>D</item>
+						<item>D#</item>
+						<item>E</item>
+						<item>F</item>
+						<item>F#</item>
+						<item>G</item>
+						<item>G#</item>
+					</choice>
+					<label>Octave</label>
+					<choice id="instoct">
+						<item>0</item>
+						<item>1</item>
+						<item>2</item>
+						<item>3</item>
+						<item>4</item>
+						<item>5</item>
+					</choice>
+					<label>Waveform</label>
+					<choice id="instwave">
+						<item>None</item>
+						<item>Noise</item>
+						<item>Pulse</item>
+						<item>Sawtooth</item>
+						<item>Triangle</item>
+					</choice>
+				</colgroup>
+				<rectangle />
+			</vgroup>
+			<vgroup frame="true">
+				<label align="center">Command 1</label>
 				<choice id="instcmd1">
 					<item>None</item>
 					<item>Set Filter</item>
@@ -151,7 +156,9 @@
 					</vgroup>
 
 				</pageview>
-				<hline />
+			</vgroup>
+			<vgroup frame="true">
+				<label align="center">Command 2</label>
 				<choice id="instcmd2">
 					<item>None</item>
 					<item>Set Filter</item>
@@ -266,8 +273,12 @@
 					</vgroup>
 
 				</pageview>
-				<rectangle />
 			</vgroup>
-		</pageview>
+		</hgroup>
+		<rectangle />
+		<hgroup>
+			<button id="instok">OK</button>
+			<button id="instcancel">Cancel</button>
+		</hgroup>
 	</vgroup>
 </dialog>
