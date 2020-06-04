@@ -86,6 +86,7 @@
 						<button id="remline" icon="10">Remove</button>
 					</hgroup>
 					<listview id="playlist" vrules="true">
+						<column title="Line" />
 						<column title="Track 0" />
 						<column title="Transpose 0" />
 						<column title="Track 1" />
@@ -152,6 +153,7 @@
 							<button icon="17">Move Down</button>
 						</vgroup>
 						<listview id="track">
+							<column title="Line" />
 							<column title="Note" />
 							<column title="Instrument" />
 							<column title="Command 1" />
