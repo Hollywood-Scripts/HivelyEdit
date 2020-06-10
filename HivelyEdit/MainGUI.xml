@@ -39,25 +39,27 @@
 
 				<vgroup title="Song Editor">
 					<hgroup>
-						<button icon="1">New Song</button>
-						<button icon="3">Close Song</button>
+						<button id="opensong" icon="2">Open Song</button>
+						<button id="closesong" icon="3">Close Song</button>
 						<rectangle />
-						<button icon="4">Save Song</button>
-						<button icon="5">Save Song as...</button>
+						<button id="savesong" icon="4">Save Song</button>
+						<button id="savesongas" icon="5">Save Song as...</button>
 					</hgroup>
 					<colgroup columns="2">
 						<label>Current Song File</label>
-						<popfile id="filename" pattern="hvl|ahx"/>
+						<textentry id="filename" />
 						<label>Title</label>
 						<textentry id="title" />
 						<label>Tempo Multiplier</label>
-						<slider id="temposlide" weight="8" />
+						<slider id="temposlide" min="1" max="16" />
 						<label>Lines per Track</label>
-						<slider id="lines" weight="8" />
+						<slider id="blocklen" min="1" max="128" />
 						<label>Number of Voices</label>
+						<slider id="numvoices" min="4" max="16" />
+						<label>Mix Gain</label>
 						<hgroup>
-							<text id="voiceout" weight="1" frame="true">4</text>
-							<scrollbar horiz="true" id="voices" weight="15" />
+							<slider id="gain" min="1" weight="7" />
+							<button weight="1" id="autogain">Auto Set</button>
 						</hgroup>
 						<label>Song Transpose</label>
 						<hgroup>
@@ -65,6 +67,15 @@
 							<button weight="1" id="bulktransok">Transpose</button>
 						</hgroup>
 					</colgroup>
+					<label align="center">Subsongs</label>
+					<hgroup frame="true">
+						<listview weight="1">
+							<column title="Subsong" />
+							<column title="Position" />
+						</listview>
+						<label>Last Subsong</label>
+						<slider id="numsubsongs" min="0" max="255" weight="2" />
+					</hgroup>
 					<rectangle />
 				</vgroup>
 
@@ -120,6 +131,12 @@
 						<column title="Track F" />
 						<column title="Transpose F" />
 					</listview>
+					<colgroup columns="2">
+						<label>Last Line</label>
+						<slider id="lines" max="999" />
+						<label>Block Position</label>
+						<slider id="position" max="127" />
+					</colgroup>
 					<hgroup>
 						<button icon="12" id="pause" toggle="true">Pause</button>
 						<button icon="11" id="play">Play</button>
@@ -134,7 +151,7 @@
 						<vgroup>
 							<hgroup>
 								<label>Current Track</label>
-								<slider id="curtrack" weight="8" />
+								<slider id="curtrack" weight="8" max="255" />
 							</hgroup>
 							<rectangle />
 							<text frame="true" id="numtracks" />

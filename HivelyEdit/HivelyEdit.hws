@@ -50,11 +50,37 @@
 @BRUSH 17, "data/movedown.png", {LoadAlpha = True}
 
 /*
+** Refresh all gadgets after file new or load
+*/
+Function p_RefreshGadgets()
+EndFunction
+
+/*
+** Save under a new filename
+*/
+Function p_SaveAs()
+
+	Local f$=moai.Get("app", "filename")
+
+	FileRequest("Select a Filename", "ahx|hvl", #REQ_SAVEMODE, "", f$)
+	If f$=""
+		moai.Request("Unsaved", "File is not saved.", "OK", "Warning")
+		Return (False)
+	EndIf
+
+	moai.Set("app", "filename", f$)
+	p_Save()
+
+	Return (True)
+
+EndFunction
+
+/*
 ** Save document
 */
 Function p_SaveGate()
 	
-	If projectname$ = "Unnamed"
+	If projectname$ = ""
 		If p_SaveAs() Then Return(True)
 	Else			
 		p_Save()
@@ -65,7 +91,7 @@ Function p_SaveGate()
 EndFunction
 
 /*
-** Warn user of losing his changes
+** Warn user of losing changes
 */
 Function p_CheckSave()
 	
@@ -81,47 +107,68 @@ Function p_CheckSave()
 EndFunction
 
 /*
+** Clear song and start a new one
+*/
+Function p_New()
+
+	If p_CheckSave() Then moai.Request("","File saved","OK")
+	/* TODO: insert reset code here */
+	changed = False
+	p_RefreshGadgets()
+
+EndFunction
+
+/*
+** Open File
+*/
+Function p_Open()
+
+	If p_CheckSave() Then moai.Request("","File saved","OK")
+
+	Local f$ = FileRequest("Select", "AHX|HVL")
+	If f$ = "" Then Return
+	
+	/* TODO: insert load function here */
+	moai.Set("app", "filename", f$)
+	changed = False
+	p_RefreshGadgets()
+
+EndFunction
+
+/*
 ** Handles all incoming events
 */
 Function p_EventFunc(msg)
 	
 	Switch msg.action
-	Case "RapaGUI":
-		Switch msg.attribute
-		Case "Pressed":
-			Switch msg.id
-				Case "mn_open":
+		Case "RapaGUI":
+			Switch msg.attribute
+				Case "Selected":
+					Switch msg.id
+						Case "mn_exit":
+							If p_CheckSave() Then Break
+							End
+						Case "mn_about":
+							moai.Request("About","HivelyEdit by Samuel D. Crow\n\n"
+								.."Written in Hollywood by Andreas Falkenhahn\n"
+								.."Based on HivelyTracker by Peter Gordon\n"
+								.."Also based on AHX by Dexter/Abyss and Pink/Abyss","OK")
+						Case "mn_rapagui":
+							moai.DoMethod("app","aboutrapagui")
+					EndSwitch
+				Case "Pressed":
+					Switch msg.id
+						Case "savesong":
+							p_SaveGate()
+						Case "savesongas"
+							p_SaveAs()
+						Case "closesong"
+							p_New()
+					EndSwitch					
+				Case "CloseRequest":
 					If p_CheckSave() Then Break
-					
-					Local f$ = FileRequest("Select", "txt")
-					If f$ = "" Then Return
-						
-					moai.Set("editor", "text", (FileToString(f$)), "nonotify", True)
-					projectname$ = f$
-					changed = False
-				Case "mn_save":
-					p_SaveGate()
-				Case "mn_saveas":
-					p_SaveAs()	
-				Case "mn_close":
-					p_New()
-				Case "mn_new":
-					p_New()				
-				Case "mn_undo":
-					moai.DoMethod("editor", "undo")
-				Case "mn_redo":
-					moai.DoMethod("editor", "redo")
-				Case "mn_cut":
-					moai.DoMethod("editor", "cut")
-				Case "mn_copy":
-					moai.DoMethod("editor", "copy")
-				Case "mn_paste":
-					moai.DoMethod("editor", "paste")	
+					End							
 			EndSwitch
-		Case "CloseRequest":
-			If p_CheckSave() Then Break
-			End							
- 		EndSwitch
 	EndSwitch
 
 EndFunction
@@ -129,9 +176,9 @@ EndFunction
 Global changed=False
 
 moai.CreateApp(ReadString(1))
-moai.CreateDialog(ReadString(2))
-moai.DoMethod("insted","showmodal")
-
+/*moai.CreateDialog(ReadString(2))
+moai.DoMethod("insted","showmodal","win")
+*/
 InstallEventHandler({RapaGUI = p_EventFunc})
 
 Repeat
