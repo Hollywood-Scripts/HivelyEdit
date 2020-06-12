@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<dialog id="insted" accelerator="acc" title="Instrument Edit">
+<dialog id="insted" accelerator="acc_inst" title="Instrument Edit">
 	<vgroup>
 		<hgroup>
 			<vgroup frame="true">
