@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<dialog id="tracked" accelerator="acc" title="Note Edit">
+<dialog id="tracked" accelerator="acc_track" title="Note Edit">
 	<vgroup>
 		<hgroup>
 			<vgroup frame="true">

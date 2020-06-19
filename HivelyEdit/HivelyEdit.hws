@@ -27,6 +27,19 @@
 @APPCOPYRIGHT "(C) 2020 by Samuel D. Crow"
 @APPAUTHOR "Samuel D. Crow"
 @APPDESCRIPTION "Edits AHX and HVL file formats"
+@APPICON {
+	Ic16x16 = "winicon16x16.png",
+	Ic24x24 = "winicon24x24.png",
+	Ic32x32 = "winicon32x32.png",
+	Ic48x48 = "winicon48x48.png",
+	Ic64x64 = "winicon64x64.png",
+	Ic96x96 = "winicon96x96.png",
+	Ic128x128 = "winicon128x128.png",
+	Ic256x256 = "winicon256x256.png",
+	Ic512x512 = "winicon512x512.png",
+	Ic1024x1024 = "winicon1024x1024.png",
+	DefaultIcon = "16x16"
+}
 
 /*
 ** Toolbar images

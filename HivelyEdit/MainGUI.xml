@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <application id="app">
 
-	<accelerator id="acc">
+	<accelerator id="acc_track">
 		<item id="notec">z</item>
 		<item id="notecs">s</item>
 		<item id="noted">x</item>
@@ -20,6 +20,27 @@
 		<item id="oct3">f4</item>
 		<item id="oct4">f5</item>
 		<item id="oct5">f6</item>
+	</accelerator>
+
+	<accelerator id="acc_inst">
+		<item id="transc">z</item>
+		<item id="transcs">s</item>
+		<item id="transd">x</item>
+		<item id="transds">d</item>
+		<item id="transe">c</item>
+		<item id="transf">v</item>
+		<item id="transfs">g</item>
+		<item id="transg">b</item>
+		<item id="transgs">h</item>
+		<item id="transa">n</item>
+		<item id="transas">j</item>
+		<item id="transb">m</item>
+		<item id="transoct0">f1</item>
+		<item id="transoct1">f2</item>
+		<item id="transoct2">f3</item>
+		<item id="transoct3">f4</item>
+		<item id="transoct4">f5</item>
+		<item id="transoct5">f6</item>
 	</accelerator>
 
 	<menubar id="menu">
