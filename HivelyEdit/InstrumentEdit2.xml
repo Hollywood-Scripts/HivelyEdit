@@ -1,0 +1,14 @@
+				</colgroup>
+				<hline />
+				<label align="center">Waveform</label>
+				<choice id="instwave">
+					<item>None</item>
+					<item>Noise</item>
+					<item>Pulse</item>
+					<item>Sawtooth</item>
+					<item>Triangle</item>
+				</choice>
+				<rectangle />
+			</vgroup>
+			<vgroup frame="true">
+			    <label align="center">Command 1</label>

@@ -18,6 +18,18 @@
 @FILE 1,"MainGUI.xml"
 @FILE 2,"InstrumentEdit.xml"
 @FILE 3,"TrackEdit.xml"
+@FILE 4,"Note.xml"
+@FILE 5,"InstCommand.xml"
+@FILE 6,"TrackCommand.xml"
+@FILE 7,"NoteAcc.xml"
+@FILE 8,"MainGUI2.xml"
+@FILE 9,"MainGUI3.xml"
+@FILE 10,"TrackEdit2.xml"
+@FILE 11,"TrackEdit3.xml"
+@FILE 12,"TrackEdit4.xml"
+@FILE 13,"InstrumentEdit2.xml"
+@FILE 14,"InstrumentEdit3.xml"
+@FILE 15,"InstrumentEdit4.xml"
 
 /*
 ** Information about this app
@@ -66,6 +78,13 @@
 ** Refresh all gadgets after file new or load
 */
 Function p_RefreshGadgets()
+EndFunction
+
+/*
+** Prefix IDs in gadgets
+*/
+Function p_PrefixGadget$(gadgetStr$,prefix$)
+	Return(ReplaceStr(gadgetStr$," id=\"", " id=\""..prefix$,True,0))
 EndFunction
 
 /*
@@ -187,12 +206,27 @@ Function p_EventFunc(msg)
 EndFunction
 
 Global changed=False
+Global Note$=ReadString(4)
+Global NoteAcc$=ReadString(7)
+Global InstCmd$=ReadString(5)
+Global TrackCmd$=ReadString(6)
+Global App$=ReadString(1) .. p_PrefixGadget$(NoteAcc$,"t") ..
+	ReadString(8) .. p_PrefixGadget$(NoteAcc$,"i") .. ReadString(9)
+Global TrackDialog$=ReadString(3) .. p_PrefixGadget$(Note$,"t") ..
+	ReadString(10) .. p_PrefixGadget$(TrackCmd$,"a") .. ReadString(11) ..
+	p_PrefixGadget$(TrackCmd$,"b") .. ReadString(12)
+Global InstDialog$=ReadString(2) .. p_PrefixGadget$(Note$,"i") ..
+	ReadString(13) .. p_PrefixGadget$(InstCmd$,"a") ..
+	ReadString(14) .. p_PrefixGadget$(InstCmd$,"b") .. ReadString(15)
 
-moai.CreateApp(ReadString(1))
-/*moai.CreateDialog(ReadString(2))
-moai.DoMethod("insted","showmodal","win")
-*/
+DebugPrint(InstDialog$)
+
+moai.CreateApp(App$)
+
 InstallEventHandler({RapaGUI = p_EventFunc})
+
+moai.CreateDialog(TrackDialog$)
+moai.DoMethod("tracked","showmodal")
 
 Repeat
 	WaitEvent

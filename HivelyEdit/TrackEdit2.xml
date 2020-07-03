@@ -1,0 +1,8 @@
+			</vgroup>
+			<rectangle />
+			<vgroup frame="true">
+				<label align="center">Instruemnt</label>
+				<slider id="currinst" max="63" horiz="false" />
+			</vgroup>
+			<vgroup frame="true">
+				<label align="center">Command 1</label>

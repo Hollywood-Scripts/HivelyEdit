@@ -1,0 +1,25 @@
+<label align="center">Note</label>
+<choice id="note">
+    <item>None</item>
+    <item>C</item>
+    <item>C#</item>
+    <item>D</item>
+    <item>D#</item>
+    <item>E</item>
+    <item>F</item>
+    <item>F#</item>
+    <item>G</item>
+    <item>G#</item>
+    <item>A</item>
+    <item>A#</item>
+    <item>B</item>
+</choice>
+<label align="center">Octave</label>
+<choice id="oct">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+</choice>

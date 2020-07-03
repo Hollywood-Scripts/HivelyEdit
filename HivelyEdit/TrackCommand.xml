@@ -1,0 +1,131 @@
+<choice id="cmd">
+    <item>None</item>
+    <item>Portamento Up</item>
+    <item>Portamento Down</item>
+    <item>Tone Portamento</item>
+    <item>Set Filter</item>
+    <item>Tone Portamento//Volume Slide</item>
+    <item>Panning</item>
+    <item>Pulse Width</item>
+    <item>Volume Slide</item>
+    <item>Jump</item>
+    <item>Volume</item>
+    <item>Next Block</item>
+    <item>Tempo</item>
+    <item>Long Jump</item>
+    <item>Pitch Slide Up</item>
+    <item>Pitch Slide Down</item>
+    <item>Vibrato Depth</item>
+    <item>Fine Volume Up</item>
+    <item>Fine Volume Down</item>
+    <item>Note Cut</item>
+    <item>Note Delay</item>
+    <item>Flags</item>
+</choice>
+
+<pageview mode="none">
+    <vgroup title="None">
+        <rectangle />
+    </vgroup>
+
+    <vgroup title="Portamento Up">
+        <slider id="trkporup" />
+    </vgroup>
+    
+    <vgroup title="Portamento Down">
+        <slider id="trkpordown" />
+    </vgroup>
+    
+    <vgroup title="Tone Portamento">
+        <slider id="trkpor" />
+    </vgroup>
+    
+    <vgroup title="Set Filter">
+        <choice id="trkfiltmode">
+            <item>Off</item>
+            <item>Low Pass</item>
+            <item>High Pass</item>
+        </choice>
+        <slider id="trkfltres" min="1" max="31" />				
+    </vgroup>
+    
+    <vgroup title="Tone Portamento//Volume Slide">
+        <slider id="trkporvol" />
+        <slider id="trkvolpor" />
+    </vgroup>
+    
+    <vgroup title="Panning">
+        <slider id="trkpan" min="-128" max="127" />
+    </vgroup>
+    
+    <vgroup title="Pulse Width">
+        <slider id="trkpw" />
+    </vgroup>
+    
+    <vgroup title="Volume Slide">
+        <choice id="trkvolslide">
+            <item>Up</item>
+            <item>Down</item>
+        </choice>
+        <slider id="trkvolsliderate" min="0" max="15" />
+    </vgroup>
+    
+    <vgroup title="Jump">
+        <slider id="trkjmp" />
+    </vgroup>
+
+    <vgroup title="Volume">
+        <choice id="trkvolmode">
+            <item>Track</item>
+            <item>Instrument</item>
+            <item>Master</item>
+        </choice>
+        <slider id="trkvol" min="0" max="64" />
+    </vgroup>
+    
+    <vgroup title="Next Block">
+        <slider id="trkblk" min="0" max="255" />
+    </vgroup>
+    
+    <vgroup title="Tempo">
+        <slider id="trktempo" />
+    </vgroup>
+                
+    <vgroup title="Long Jump">
+        <slider id="trklongjmp" />
+    </vgroup>
+    
+    <vgroup title="Pitch Slide Up">
+        <slider id="trkpitchup" max="15" />
+    </vgroup>
+    
+    <vgroup title="Pitch Slide Down">
+        <slider id="trkpitchdown" max="15" />
+    </vgroup>
+    
+    <vgroup title="Vibrato Depth">
+        <slider id="trkvibdep" max="15" />
+    </vgroup>
+    
+    <vgroup title="Fine Volume Up">
+        <slider id="trkvolup" max="15" />
+    </vgroup>
+    
+    <vgroup title="Fine Volume Down">
+        <slider id="trkvoldown" max="15" />
+    </vgroup>
+    
+    <vgroup title="Note Cut">
+        <slider id="trknotecut" max="15" />
+    </vgroup>
+    
+    <vgroup title="Note Delay">
+        <slider id="trknotedelay" max="15" />
+    </vgroup>
+    
+    <vgroup title="Flags">
+        <checkbox right="true" selected="true" id="trktrnsfix">Transpose Hold</checkbox>
+    </vgroup>
+    
+</pageview>
+<rectangle />

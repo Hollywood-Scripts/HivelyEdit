@@ -1,0 +1,10 @@
+			</vgroup>
+		</hgroup>
+		<rectangle />
+		<hgroup>
+			<button id="instok">OK</button>
+			<rectangle />
+			<button id="instcancel">Cancel</button>
+		</hgroup>
+	</vgroup>
+</dialog>

@@ -1,0 +1,9 @@
+    		</vgroup>
+		</hgroup>
+		<hgroup>
+			<button id="trkok">OK</button>
+			<rectangle />
+			<button id="trkcancel">Cancel</button>
+		</hgroup>
+	</vgroup>
+</dialog>

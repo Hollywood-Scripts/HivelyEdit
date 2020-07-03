@@ -1,0 +1,113 @@
+<choice id="instcmd">
+    <item>None</item>
+    <item>Set Filter</item>
+    <item>Portamento Up</item>
+    <item>Portamento Down</item>
+    <item>Pulse Width</item>
+    <item>Pulse and Filter Modulation</item>
+    <item>Jump</item>
+    <item>Ring Modulation</item>
+    <item>Panning</item>
+    <item>Volume</item>
+    <item>List Speed</item>
+</choice>
+<pageview mode="none">
+
+    <vgroup title="None">
+        <rectangle />
+    </vgroup>
+
+    <vgroup title="Set Filter">
+        <choice id="instfiltmode">
+            <item>Off</item>
+            <item>Low Pass</item>
+            <item>High Pass</item>
+        </choice>
+        <slider id="fltres" min="1" max="31" />
+    </vgroup>
+
+    <vgroup title="Portamento Up">
+        <slider id="slduprate" />
+    </vgroup>
+
+    <vgroup title="Portamento Down">
+        <slider id="slddownrate" />
+    </vgroup>
+
+    <vgroup title="Pulse Width">
+        <slider id="pw" />
+    </vgroup>
+
+    <vgroup title="Pulse and Filter Modulation">
+        <label>Filter Modulation</label>
+        <choice id="filtmodmode">
+            <item>Stop</item>
+            <item>Foreward</item>
+            <item>Reverse</item>
+        </choice>
+        <hline />
+        <label>Pulse Width Modulation</label>
+        <choice id="pwmodmode">
+            <item>Stop</item>
+            <item>Foreward</item>
+            <item>Reverse</item>
+        </choice>
+    </vgroup>
+    
+    <vgroup title="Jump">
+        <slider id="jmp" />
+    </vgroup>
+
+    <vgroup title="Ring Modulation">
+        <choice id="instringtype">
+            <item>Triangle Absolute</item>
+            <item>Sawtooth Absolute</item>
+            <item>Triangle Relative</item>
+            <item>Sawtooth Relative</item>
+            <item>Triangle Stop</item>
+            <item>Sawtooth Stop</item>
+        </choice>
+        <label>Note</label>
+        <choice id="rmnote">
+            <item>A</item>
+            <item>A#</item>
+            <item>B</item>
+            <item>C</item>
+            <item>C#</item>
+            <item>D</item>
+            <item>D#</item>
+            <item>E</item>
+            <item>F</item>
+            <item>F#</item>
+            <item>G</item>
+            <item>G#</item>
+        </choice>
+        <label>Octave</label>
+        <choice id="rmoct">
+            <item>0</item>
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+        </choice>
+    </vgroup>
+
+    <vgroup title="Panning">
+        <slider id="instpan" min="-128" max="127" />
+    </vgroup>
+
+    <vgroup title="Volume">
+        <choice id="instvolmode">
+            <item>Track</item>
+            <item>Instrument</item>
+            <item>Master</item>
+        </choice>
+        <slider id="instvol" min="0" max="64" />
+    </vgroup>
+
+    <vgroup title="List Speed">
+        <slider id="insttempo" min="0" max="255" />
+    </vgroup>
+
+</pageview>
