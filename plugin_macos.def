@@ -5,3 +5,8 @@ _CloseStream
 _SeekStream
 _StreamSamples
 _GetFormatName
+_GetBaseTable
+_GetConstants
+_GetCommands
+_InitLibrary
+_FreeLibrary

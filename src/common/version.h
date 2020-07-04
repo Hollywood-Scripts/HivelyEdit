@@ -35,7 +35,7 @@
 #endif
 
 #define PLUGIN_NAME "HivelyTracker"
-#define PLUGIN_MODULENAME "hvl"
+#define PLUGIN_MODULENAME "ahx"
 #define PLUGIN_AUTHOR "Andreas Falkenhahn and Samuel D. Crow, based on code by Xeron/IRIS"
 #define PLUGIN_DESCRIPTION "Enables Hollywood to play AHX and HivelyTracker modules"
 #define PLUGIN_COPYRIGHT "BSD"

@@ -7,6 +7,13 @@ CloseStream;
 SeekStream;
 StreamSamples;
 GetFormatName;
+GetBaseTable;
+GetConstants;
+GetHelpStrings;
+GetExtensions;
+GetCommands;
+InitLibrary;
+FreeLibrary;
 local:
 *;
 };

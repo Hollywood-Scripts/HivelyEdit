@@ -5,13 +5,14 @@ PROJECT = ahx.hwp
 BASE		= build/linux64
 
 C_COMPILER      = gcc
-C_COMPILER_OPTS = -c -fPIC -DHW_LINUX -DHW_LITTLE_ENDIAN -O2 -Wall -Wno-pointer-sign -I~/Hollywood/SDK/include
+C_COMPILER_OPTS = -c -fPIC -DHW_LINUX -DHW_LITTLE_ENDIAN -Os -Wall -Wno-pointer-sign -I../../Hollywood/SDK/include
 
 LINKER		= gcc
 LINKER_OPTS	= -shared -fPIC -Wl,--version-script=plugin_linux.def -Wl,-soname,$(PROJECT)
 LINKER_LIBS	=
 
 OBJECTS         = \
+$(BASE)/purefuncs.o \
 $(BASE)/replayer.o \
 $(BASE)/plugin.o
 
@@ -26,6 +27,7 @@ $(PROJECT): $(OBJECTS)
 clean:
 	rm -f $(BASE)/*.o
 	rm -f $(BASE)/*.hwp
-	
+
+$(BASE)/purefuncs.o: src/purefuncs.c src/common/purefuncs.h
 $(BASE)/replayer.o: src/replayer.c src/replayer.h
-$(BASE)/plugin.o: src/plugin.c
+$(BASE)/plugin.o: src/plugin.c src/common/purefuncs.h src/common/version.h

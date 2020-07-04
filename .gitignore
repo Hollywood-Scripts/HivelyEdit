@@ -1,1 +1,4 @@
 *.xprj
+.vscode
+build/*
+
