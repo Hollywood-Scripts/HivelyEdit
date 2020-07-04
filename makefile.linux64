@@ -1,18 +1,19 @@
 # Makefile for Linux x64
 
-PROJECT = aiff.hwp
+PROJECT = ahx.hwp
 
 BASE		= build/linux64
 
 C_COMPILER      = gcc
-C_COMPILER_OPTS = -c -fPIC -DHW_LINUX -DHW_LITTLE_ENDIAN -O2 -Wall -Wno-pointer-sign -I../../include
+C_COMPILER_OPTS = -c -fPIC -DHW_LINUX -DHW_LITTLE_ENDIAN -O2 -Wall -Wno-pointer-sign -I~/Hollywood/SDK/include
 
 LINKER		= gcc
 LINKER_OPTS	= -shared -fPIC -Wl,--version-script=plugin_linux.def -Wl,-soname,$(PROJECT)
 LINKER_LIBS	=
 
 OBJECTS         = \
-$(BASE)/aiff.o
+$(BASE)/replayer.o \
+$(BASE)/plugin.o
 
 $(BASE)/%.o: src/%.c
 	$(C_COMPILER) -o $@ $(C_COMPILER_OPTS) src/$*.c
@@ -26,6 +27,5 @@ clean:
 	rm -f $(BASE)/*.o
 	rm -f $(BASE)/*.hwp
 	
-$(BASE)/aiff.o: src/aiff.c
-
-
+$(BASE)/replayer.o: src/replayer.c src/replayer.h
+$(BASE)/plugin.o: src/plugin.c
