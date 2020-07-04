@@ -1,6 +1,6 @@
 # Makefile for MorphOS using gcc
 
-PROJECT = hvl
+PROJECT = ahx
 
 BASE		= build/mos
 
@@ -29,7 +29,7 @@ clean:
 	delete $(BASE)/#?.o
 	delete $(BASE)/#?.hwp
 
-$(BASE)/amigaentry.o: src/amigaentry.c
-$(BASE)/purefuncs.o: src/purefuncs.c
-$(BASE)/replayer.o: src/replayer.c
-$(BASE)/plugin.o: src/plugin.c
+$(BASE)/amigaentry.o: src/amigaentry.c src/common/version.h
+$(BASE)/purefuncs.o: src/purefuncs.c src/common/version.h src/common/purefuncs.h
+$(BASE)/replayer.o: src/replayer.c src/common/version.h src/replayer.h src/common/purefuncs.h
+$(BASE)/plugin.o: src/plugin.c src/common/version.h src/common/purefuncs.h
