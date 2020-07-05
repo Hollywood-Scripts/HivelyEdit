@@ -34,7 +34,7 @@
 #define PLUGIN_ARCH HWARCH_IOS
 #endif
 
-#define PLUGIN_NAME "HivelyTracker"
+#define PLUGIN_NAME "HivelyEdit"
 #define PLUGIN_MODULENAME "ahx"
 #define PLUGIN_AUTHOR "Andreas Falkenhahn and Samuel D. Crow, based on code by Xeron/IRIS"
 #define PLUGIN_DESCRIPTION "Enables Hollywood to play and edit AHX and HivelyTracker modules"

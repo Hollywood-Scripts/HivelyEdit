@@ -1,3 +1,3 @@
-# hivelyedit
+# HivelyEdit
 
-A HivelyTracker editor made in Hollywood
+A HivelyTracker editor made in Hollywood using the RapaGUI framework for cross-platform compatibility.
