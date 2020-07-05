@@ -1,6 +1,6 @@
-#define PLUGIN_VER 1
-#define PLUGIN_REV 2
-#define PLUGIN_VER_STR "1.2"
+#define PLUGIN_VER 2
+#define PLUGIN_REV 0
+#define PLUGIN_VER_STR "2.0"
 
 #if defined(HW_AMIGAOS3)
 #define PLUGIN_PLAT "AmigaOS3"
@@ -37,7 +37,7 @@
 #define PLUGIN_NAME "HivelyTracker"
 #define PLUGIN_MODULENAME "ahx"
 #define PLUGIN_AUTHOR "Andreas Falkenhahn and Samuel D. Crow, based on code by Xeron/IRIS"
-#define PLUGIN_DESCRIPTION "Enables Hollywood to play AHX and HivelyTracker modules"
+#define PLUGIN_DESCRIPTION "Enables Hollywood to play and edit AHX and HivelyTracker modules"
 #define PLUGIN_COPYRIGHT "BSD"
-#define PLUGIN_URL "http://www.hollywood-mal.com/"
-#define PLUGIN_DATE "02.04.17"
+#define PLUGIN_URL "http://www.github.com/samuraicrow/hivelyedit/"
+#define PLUGIN_DATE "05.07.20"

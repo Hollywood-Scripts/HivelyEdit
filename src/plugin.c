@@ -297,6 +297,7 @@ HW_EXPORT void CloseStream(APTR handle)
 
 	hvl_FreeTune(ap->tune);
 	pure_free(ap->mixbuf);
+	pure_free(ap->buf);
 	pure_free(ap);
 }
 
